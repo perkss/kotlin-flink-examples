@@ -1,0 +1,9 @@
+*.iml
+/.idea
+.DS_Store
+target/
+/target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
