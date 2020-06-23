@@ -1,4 +1,8 @@
 language: kotlin
+install: skip
+
+os: linux
+dist: trusty
 
 jdk:
   - oraclejdk11
@@ -7,4 +11,5 @@ sudo: required
 services:
   - docker
 
-script: mvn install -Dmaven.compiler.target=11 -Dmaven.compiler.source=11
+script:
+  - ./gradlew build

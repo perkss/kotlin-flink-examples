@@ -10,7 +10,6 @@ import org.apache.flink.util.Collector
 object JoinExample {
 
     fun topology() {
-
         val env = ExecutionEnvironment.getExecutionEnvironment()
 
         val text: DataSet<String> = env.fromElements(
@@ -29,7 +28,6 @@ object JoinExample {
                 .sum(1)
 
         wordCounts.print()
-
     }
 
 
