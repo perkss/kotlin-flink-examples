@@ -26,6 +26,8 @@ dependencyResolutionManagement {
             alias("flink-java").to("org.apache.flink", "flink-java").versionRef("flink")
             alias("flink-clients").to("org.apache.flink", "flink-clients_2.12").versionRef("flink")
             alias("flink-streaming-java").to("org.apache.flink", "flink-streaming-java_2.12").versionRef("flink")
+            alias("flink-test-utils").to("org.apache.flink", "flink-test-utils_2.12").versionRef("flink")
+            alias("flink-runtime").to("org.apache.flink", "flink-runtime").versionRef("flink")
             alias("kotlin-stdlib-jdk8").to("org.jetbrains.kotlin", "kotlin-stdlib-jdk8").versionRef("kotlin")
             alias("kotlin-std-lib").to("org.jetbrains.kotlin", "kotlin-stdlib-jdk8").versionRef("kotlin")
             alias("spring-boot-starter").to("org.springframework.boot", "spring-boot-starter").versionRef("spring-boot")
@@ -33,10 +35,11 @@ dependencyResolutionManagement {
             alias("spring-boot-starter-webflux").to("org.springframework.boot", "spring-boot-starter-webflux").versionRef("spring-boot")
             alias("slf4j").to("org.slf4j", "slf4j-api").versionRef("slf4j")
             alias("logback").to("ch.qos.logback", "logback-classic").versionRef("logback")
-            alias("junit-jupiter").to("org.junit.jupiter", "junit-jupiter-api").versionRef("jupiter")
-            alias("junit-engine").to("org.junit.jupiter", "junit-jupiter-engine").withoutVersion()
+            alias("junit-jupiter-api").to("org.junit.jupiter", "junit-jupiter-api").versionRef("jupiter")
+            alias("junit-jupiter").to("org.junit.jupiter", "junit-jupiter").versionRef("jupiter")
 
             bundle("logging", listOf("slf4j", "logback"))
+            bundle("test", listOf("junit-jupiter", "junit-jupiter-api"))
         }
     }
 }

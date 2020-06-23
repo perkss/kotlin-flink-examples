@@ -31,6 +31,11 @@ dependencies {
     implementation(libs.flink.streaming.java)
     implementation(libs.flink.clients)
     implementation(libs.bundles.logging)
+    implementation("org.codehaus.groovy:groovy-all:3.0.9")
+
+    testImplementation(libs.flink.test.utils)
+    testImplementation(libs.flink.runtime)
+    testImplementation(libs.bundles.test)
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
@@ -46,6 +51,13 @@ tasks.withType<JavaCompile> {
 spotless {
     java { googleJavaFormat() }
     kotlinGradle { ktlint() }
+}
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
 }
 
 group = "com.perkss"
