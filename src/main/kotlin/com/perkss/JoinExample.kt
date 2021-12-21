@@ -7,9 +7,10 @@ import org.apache.flink.streaming.api.datastream.DataStream
 import org.apache.flink.streaming.api.windowing.assigners.EventTimeSessionWindows
 import org.apache.flink.streaming.api.windowing.time.Time
 import org.slf4j.LoggerFactory
+import java.time.Instant
 
 data class UserDetails(val id: Int, val name: String)
-data class UserClicks(val id: Int, val clicks: Int)
+data class UserClicks(val id: Int, val clicks: Int, val eventTime: Instant = Instant.now())
 data class UserAnalysis(val id: Int, val name: String, val clicks: Int)
 
 object JoinExample {
