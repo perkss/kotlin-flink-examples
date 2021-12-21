@@ -50,13 +50,10 @@ object WatermarkExample {
         return clickStream
             .assignTimestampsAndWatermarks(WatermarkStrategy.forMonotonousTimestamps<UserClicks>()
                 .withTimestampAssigner(
-                    object : TimestampAssignerSupplier<UserClicks> {
-                        override fun createTimestampAssigner(context: TimestampAssignerSupplier.Context): TimestampAssigner<UserClicks> {
-                            return TimestampAssigner { element, recordTimestamp ->
-                                element.eventTime.toEpochMilli()
-                            }
+                    TimestampAssignerSupplier {
+                        TimestampAssigner { element, _ ->
+                            element.eventTime.toEpochMilli()
                         }
-
                     }
                 ))
             .keyBy(object : KeySelector<UserClicks, Int> {
@@ -68,7 +65,6 @@ object WatermarkExample {
                     logger.info("User Clicks {}", value.id)
                     return value
                 }
-
             })
     }
 
