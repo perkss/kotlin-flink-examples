@@ -9,8 +9,10 @@ import java.time.Instant
 internal class WatermarkExampleTest {
 
     @Test
-    fun incrementPipeline() {
+    fun pipeline() {
         val env = StreamExecutionEnvironment.getExecutionEnvironment()
+
+        env.config.autoWatermarkInterval = 1
 
         // configure your test environment
         env.parallelism = 2

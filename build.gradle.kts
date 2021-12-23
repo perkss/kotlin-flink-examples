@@ -33,8 +33,9 @@ dependencies {
     implementation(libs.bundles.logging)
     implementation("org.codehaus.groovy:groovy-all:3.0.9")
 
-    testImplementation(libs.flink.test.utils)
+    testImplementation(libs.flink.test.utils.core)
     testImplementation(libs.flink.runtime)
+    testImplementation(libs.flink.test.utils.junit)
     testImplementation(libs.bundles.test)
 }
 
